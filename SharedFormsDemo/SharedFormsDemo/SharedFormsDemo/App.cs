@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Shared.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Xamarin.Forms;
 
 namespace Shared
@@ -19,7 +19,11 @@ namespace Shared
       //    HorizontalOptions = LayoutOptions.CenterAndExpand,
       //  },
       //};
-      return new EventsView();
+      var page = new EventsView();
+      var events = EventsController.Current.GetEvents();
+      page.BindingContext = events;
+
+      return page;
 		}
 	}
 }

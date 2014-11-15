@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Shared.Controller
 {
@@ -29,29 +30,21 @@ namespace Shared.Controller
     }
 
 
-    public List<Session> GetSessionsForEvent(int eventId, Action<object> OnSuccess, Action<Exception> OnFail)
+    public async Task<List<Session>> GetSessionsForEvent(int eventId)
     {
       var sessions = from session in EventsModel.Current.Sessions
                      where session.EventId == eventId
                      select session;
 
       List<Session> resultList = null;
+
       // push some work to the background thread and then dispatch it again on the main thread
       // just to show the proofpoint of device abstraction layer
-      DeviceContext.DeviceContext.Current.RunOnBackground(() =>
-      {
-        // you can see that this is run on the background since the UI will not lockup and
-        // keeps responsive for the five seconds delay
-        int x = 0;
-        while (x < 1000000)
-          x++;
-        // now we want to signal back the success we acieved
-        DeviceContext.DeviceContext.Current.RunOnForeground(() =>
+      resultList = await Task.Run<List<Session>>(async () =>
         {
-          resultList = sessions.ToList();
-          OnSuccess(resultList);
+          await Task.Delay(2000);
+          return sessions.ToList();
         });
-      });
 
       return resultList;
     }

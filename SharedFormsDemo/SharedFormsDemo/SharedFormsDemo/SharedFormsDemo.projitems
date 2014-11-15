@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controllers\Controller.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DeviceContext\DeviceContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventDetail.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EventsView.xaml.cs">
       <DependentUpon>EventsView.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -21,6 +22,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Session.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)EventDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)EventsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
