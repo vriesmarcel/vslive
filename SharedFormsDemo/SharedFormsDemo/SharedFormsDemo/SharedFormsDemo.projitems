@@ -20,6 +20,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Event.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\EventsModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Session.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MyPage.xaml.cs">
+      <DependentUpon>MyPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)EventDetail.xaml">
@@ -28,6 +31,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)EventsView.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)MyPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>

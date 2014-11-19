@@ -22,7 +22,7 @@ namespace Shared
       if (item != null)
       {
         var sessions = await EventsController.Current.GetSessionsForEvent(item.EventId);
-        var page = new EventDetail();
+        Page page = new MyPage();
         page.BindingContext = sessions;
         await Navigation.PushAsync(page);
       }

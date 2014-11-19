@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedFormsDemo", "SharedFormsDemo\SharedFormsDemo\SharedFormsDemo.shproj", "{1867A823-BD0E-441D-B5DD-15572905F068}"
 EndProject
